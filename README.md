@@ -1,1 +1,1 @@
-#js-translator
+# js-translator
