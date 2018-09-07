@@ -24,7 +24,7 @@ const italian = {
 } ;
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
-    selectedDiv.innerHTML += `${stringToPrint} `;
+    selectedDiv.innerHTML = `${stringToPrint} `;
 };
 
 const spanishButton = document.getElementById("spanishButton");
@@ -35,61 +35,49 @@ const italianButton = document.getElementById("italianButton");
 const spanishTranslate = () => {
     var userInput = document.getElementById('inputText').value;
     var wordList = userInput.split(" ");
-    let printThis = '';
+    var badWords = '';
+    var goodWords = '';
     wordList.forEach((word) => {
-        // printThis += `<div id='emptyDiv' <p>${spanish[word]}</p></div>`;
-        // console.log(spanish[word]);
-        printToDom(spanish[word], 'emptyDiv');
-
-        // if (userInput === spanish[word]) {
-        //     console.log(`Sorry! ${userInput} is not in the spanish dictionary.`);
-        // }
-    });
+        if (word in spanish) {
+            goodWords += `${spanish[word]} `;
+        }else{
+            badWords += `<div>${word}</div>`;
+        }
+    }
+);
+    printToDom(`<div>"${userInput}" translates to: "${goodWords}"</div><br>` + `<div>The following words are not in this Spanish dictionary:</div><br>` + `<div> ${badWords}</div>`, 'emptyDiv');
 }
-// let newString = '';
-//   for (let i = 0; i < elizabethSanger.images.length; i++) {
-//     newString += `<div class="image">`;
-
-
+const germanTranslate = () => {
+    var userInput = document.getElementById('inputText').value;
+    var wordList = userInput.split(" ");
+    var badWords = '';
+    var goodWords = '';
+    wordList.forEach((word) => {
+        if (word in german) {
+            goodWords += `${german[word]} `;
+        }else{
+            badWords += `<div>${word}</div>`;
+        }
+    }
+);
+    printToDom(`<div>"${userInput}" translates to: "${goodWords}"</div><br>` + `<div>The following words are not in this German dictionary:</div><br>` + `<div> ${badWords}</div>`, 'emptyDiv');
+}
+const italianTranslate = () => {
+    var userInput = document.getElementById('inputText').value;
+    var wordList = userInput.split(" ");
+    var badWords = '';
+    var goodWords = '';
+    wordList.forEach((word) => {
+        if (word in italian) {
+            goodWords += `${italian[word]} `;
+        }else{
+            badWords += `<div>${word}</div>`;
+        }
+    }
+);
+    printToDom(`<div>"${userInput}" translates to: "${goodWords}"</div><br>` + `<div>The following words are not in this Italian dictionary:</div><br>` + `<div> ${badWords}</div>`, 'emptyDiv');
+}
 
 spanishButton.addEventListener("click", spanishTranslate);
-
-// function determineTranslation(language)
-// {
-    
-//     //split the user input
-//     //
-//     var userInput = document.getElementById('inputText').value;
-//     for(var i = 0; i < userInput.length; i++)
-//     {
-//         var compareWord = userInput[i];
-
-//     }
-//     userInput.forEach(element => {
-//         var compareWord = element.value;
-//     });
-//     if(language == "spanish")
-//     {
-
-//     }
-//     else if(language == "german")
-//     {
-
-//     }
-
-//     var wordMatch;
-//     switch (language)
-//     {
-//         case "Spanish":
-//                 wordMatch = spanish[userInput];
-//                 spanish.foreach((word)=> (if (word.name == "hello")))
-//                 if(wordMatch == null || wordMatch == "")
-//                 {
-//                     wordMatch = "No match found";
-//                 }
-
-//                 break;
-//     }
-// }
-
-// spanishButton.addEventListener("click", determineTranslation("Spanish"));
+germanButton.addEventListener("click", germanTranslate);
+italianButton.addEventListener("click", italianTranslate);
