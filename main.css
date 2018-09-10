@@ -1,8 +1,14 @@
+h1 {
+    text-align: center;
+}
+
 #inputText {
     display: flex;
     /* flex-direction: row; */
+    justify-content: center;
     text-align: center;
-    margin: 20px 10px;
+    margin: 20px auto;
+    width: 500px;
 }
 #allButtons {
     display: flex;
