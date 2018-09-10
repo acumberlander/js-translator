@@ -1,0 +1,20 @@
+#inputText {
+    display: flex;
+    /* flex-direction: row; */
+    text-align: center;
+    margin: 20px 10px;
+}
+#allButtons {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 10px;
+    justify-content: space-between;
+}
+#inputText {
+
+}
+
+body {
+    background-color: royalblue;
+
+}
